@@ -1,0 +1,11 @@
+npm init -y
+npm i bcrypt cloudinary cookie-parser concurrently cors dotenv express express-fileupload jsonwebtoken mongoose
+npm i -D nodemon
+npx create-react-app febrero
+cd febrero
+npm i react-router-dom axios react-paypal-express-checkout
+npm install --save react-paypal-express-checkout
+barra fina de abajo -> javascript ->configuracion de javascript -> (abajo de todo),
+    "emmet.includeLanguages": {
+        "javascript": "javascriptreact"
+    }
