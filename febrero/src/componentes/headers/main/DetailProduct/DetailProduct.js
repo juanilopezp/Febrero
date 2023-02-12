@@ -32,7 +32,7 @@ function DetailProduct() {
             <p> {DetailProduct.description}</p>
             <p> {DetailProduct.content}</p>
             <p>Sold: {DetailProduct.sold}</p>
-            <Link to='/cart' className='cart'>Comprar ahora</Link>
+            <Link to='/cart' className='cart' onClick={() => addCart(product)}>Comprar ahora</Link>
         </div>
     </div>
         <h2>Related products</h2>

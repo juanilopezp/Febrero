@@ -12,4 +12,6 @@ router.get('/refresh_token', userControl.register)
 
 router.get('/infor', auth, userControl.getUser)
 
+router.patch('/addcart', auth, userControl.addCart)
+
 module.exports = router
