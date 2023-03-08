@@ -19,6 +19,7 @@ app.use('/user', require('./Routes/userRoutes'))
 app.use('/api', require('./Routes/categoryRoutes'))
 app.use('/api', require('./Routes/upload'))
 app.use('/api', require('./Routes/productRoutes'))
+app.use('/api', require('./Routes/paymentRoutes'))
 
 //CONECTARSE A MONGODB CHEEEEEE
 const URI = process.env.MONGODB_URL

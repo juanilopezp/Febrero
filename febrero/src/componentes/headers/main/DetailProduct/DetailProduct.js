@@ -7,6 +7,7 @@ import ProductItem from '../utils/productItem/ProductItem'
 function DetailProduct() {
     const params = useParams()
     const state = useContext(GlobalState)
+    const addCart = state.userAPI.addcart
     const[products] = state.productsAPI.products
     const [DetailProduct, setDetailProduct] = useState([])
 
@@ -32,7 +33,9 @@ function DetailProduct() {
             <p> {DetailProduct.description}</p>
             <p> {DetailProduct.content}</p>
             <p>Sold: {DetailProduct.sold}</p>
-            <Link to='/cart' className='cart' onClick={() => addCart(product)}>Comprar ahora</Link>
+            <Link to='/cart' className='cart' onClick={() => addCart(detailProduct)}>
+                Comprar ahora
+            </Link>
         </div>
     </div>
         <h2>Related products</h2>

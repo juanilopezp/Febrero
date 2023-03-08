@@ -14,4 +14,6 @@ router.get('/infor', auth, userControl.getUser)
 
 router.patch('/addcart', auth, userControl.addCart)
 
+router.get('/history', auth, userControl.history)
+
 module.exports = router

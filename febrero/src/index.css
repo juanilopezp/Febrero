@@ -39,3 +39,5 @@ button{
 @import url("./componentes/headers/main/DetailProduct/detailProduct.css");
 @import url("./componentes/headers/main/auth/Login.css");
 @import url("./componentes/headers/main/cart/cart.css");
+@import url("./componentes/headers/main/history/history.css");
+@import url("./componentes/headers/main/categories/Categories.css");

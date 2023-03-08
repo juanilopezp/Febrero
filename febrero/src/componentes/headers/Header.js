@@ -1,4 +1,4 @@
-import React, {useState, useContext} from 'react'
+import React, {useContext} from 'react'
 import { GlobalState } from '../../GlobalState'
 import Menu from './icono/menu.svg'
 import Close from './icono/close.svg'

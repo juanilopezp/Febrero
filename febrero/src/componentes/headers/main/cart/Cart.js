@@ -2,11 +2,14 @@ import React, {useContext, useEffect, useState} from 'react'
 import {GlobalState} from '../../../../GlobalState'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
+import PayPalBtn from './PayPalBtn'
+
 function Cart() {
   const state = useContext(GlobalState)
   const [cart, setCart] = state.userAPI.cart
   const[total, setTotal] = useState(0)
   const [token] = state.token
+  const [callback, setCallback] = state.userAPI.callback
 
   useEffect(()=>{
     const getTotal =() =>{
@@ -20,7 +23,7 @@ function Cart() {
     getTotal()
   },[cart])
 
-  const addToCart = async () =>{
+  const addToCart = async (cart) =>{
     await axios.patch ('/user/addcart', {cart},{
       headers: {Authorization: token}
     })
@@ -34,7 +37,7 @@ function Cart() {
     })
 
     setCart([...cart])
-    addToCart()
+    addToCart(cart)
   }
   const decrement = (id) =>{
     cart.forEach(item =>{
@@ -44,7 +47,7 @@ function Cart() {
     })
 
     setCart([...cart])
-    addToCart()
+    addToCart(cart)
   }
 
   const removeProduct = id =>{
@@ -56,10 +59,20 @@ function Cart() {
       })
 
       setCart([...cart])
-      addToCart()
+      addToCart(cart)
     }
   }
 
+  const tranSuccess = async (payment) =>{
+    const {paymentID, address} = payment;
+
+    await axios.post('/api/payment', {cart, paymentID, address},{
+      headers: {Authorization: token}
+    })
+    setCart([])
+    addToCart([])
+    setCallback(!callback)
+  }
 
   if (cart.length === 0)
     return <h2> Cart empty </h2>
@@ -90,7 +103,10 @@ function Cart() {
 
       <div className="total">
         <h3>Total: $ {total}</h3>
-        <Link to="#!">payment</Link>
+        <PayPalBtn
+        total={total}
+        tranSuccess={tranSuccess}
+        />
       </div>
     </div>
   )

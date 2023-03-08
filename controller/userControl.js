@@ -1,6 +1,8 @@
 const Users = require('../models/userModel')
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
+const Payments = require('../models/paymentModel')
+
 
 const userControl ={
     register: async (req, res) =>{
@@ -102,6 +104,14 @@ const userControl ={
 
             return res.json ({msg:"Añadido a carrito"})
         } catch (err) {
+            return res.status(500).json({msg: err.message})
+        }
+    },
+    history: async(req, res)=>{
+        try {
+            const history = await Payments.find({user_id: req.user.id})
+            
+        } catch (error) {
             return res.status(500).json({msg: err.message})
         }
     }
