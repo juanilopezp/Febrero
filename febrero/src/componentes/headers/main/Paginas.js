@@ -10,7 +10,7 @@ import NotFound from './utils/NotFound/NotFound'
 import { GlobalState } from '../../../GlobalState'
 import OrderDetails from './history/OrderDetails'
 import Categories from './categories/Categories'
-
+import CreateProduct from './createProducts/CreateProduct'
 
 function Paginas() {
   const state = useContext(GlobalState)
@@ -23,10 +23,16 @@ function Paginas() {
     <Routes>
       <Route path='/productos' element={<Products/>}/>
       <Route path='/detail/:id' element={<DetailProduct/>}/>
+
       <Route path='/login' element={isLogged ? <NotFound/> : <Login/>}/>
       <Route path='/register' element={isLogged ? <NotFound/>:<Register/>}/>
-      <Route path='/history' element={isLogged ? <OrderHistory/> : <NotFound/>}/>
+      
+      
       <Route path='/category' element={isAdmin ? <Categories/> : <NotFound/>}/>
+      <Route path='/create_product' element={isAdmin ? <CreateProduct/> : <NotFound/>}/>
+      <Route path='/edit_product:id' element={isAdmin ? <CreateProduct/> : <NotFound/>}/>
+      
+      <Route path='/history' element={isLogged ? <OrderHistory/> : <NotFound/>}/>
       <Route path='/history/:id' element={isLogged ? <OrderDetails/> : <NotFound/>}/>
       <Route path='/cart' element={<Cart/>}/>
     </Routes>
