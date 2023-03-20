@@ -2,7 +2,7 @@ import React from 'react'
 import { BrowserRouter as Router } from 'react-router-dom'
 import {DataProvider} from './GlobalState'
 import Header from './componentes/headers/Header';
-import Paginas from './componentes/headers/main/Paginas';
+import Paginas from './componentes/main/Paginas';
 
 
 function App() {

@@ -4,7 +4,14 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "dev": "nodemon server.js"
+    "start": "node server.js",
+    "server": "nodemon server.js",
+    "febrero": "cd febrero && npm run start",
+    "server-install": "npm install",
+    "febrero-install": "cd febrero && npm install",
+    "install-all": "concurrentlconcurrently \"npm run server-install\" \"npm run client-install\"y",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "heroku-postbuild": "cd febrero && npm install && npm run build"
   },
   "keywords": [],
   "author": "",

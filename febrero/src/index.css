@@ -1,4 +1,5 @@
 * {
+  background-color: yellow;
   padding: 0;
   box-sizing: border-box;
   margin: 0;
@@ -35,10 +36,75 @@ button{
 }
 
 @import url("./componentes/headers/Header.css");
-@import url("./componentes/headers/main/productos/Products.css");
-@import url("./componentes/headers/main/DetailProduct/detailProduct.css");
-@import url("./componentes/headers/main/auth/Login.css");
-@import url("./componentes/headers/main/cart/cart.css");
-@import url("./componentes/headers/main/history/history.css");
-@import url("./componentes/headers/main/categories/Categories.css");
-@import url("./componentes/headers/main/createProducts/CreateProducts.css");
+@import url("./componentes/main/productos/Products.css");
+@import url("./componentes/main/DetailProduct/detailProduct.css");
+@import url("./componentes/main/auth/Login.css");
+@import url("./componentes/main/cart/cart.css");
+@import url("./componentes/main/history/history.css");
+@import url("./componentes/main/categories/Categories.css");
+@import url("./componentes/main/createProducts/CreateProducts.css");
+@media (max-width: 720px){
+  header ul{
+   position: fixed;
+   top:0;
+   left: -100%;
+   width: 100%;
+   height: 100vh;
+   background: white;
+   display: flex;
+   flex-direction: column;
+   justify-content: space-around;
+   align-items: center;
+   opacity: 0.98;
+   z-index: 99;
+   transition: 0.5s ease-in;
+  }
+  header .menu{
+    display: block;
+    cursor: pointer;
+  }
+  header ul li .menu{
+    position: absolute;
+    top:20px;
+    right: 20px;
+  }
+  header{
+    justify-content: space-between;
+  }
+}
+
+@media (max-width: 570px){
+  .filter_menu .row span{
+    display: none;
+  }
+}
+
+@media (max-width: 500px){
+  .App{
+    padding: 0 10px;
+  }
+  .detail{
+    font-size: 100%;
+    padding: 0;
+  }
+  .filter_menu input{
+    margin: 0;
+  }
+  .filter_menu .sort{
+    flex: 1;
+  }
+  .filter_menu .sort select{
+    width: 100%;
+    min-width: 290px;
+    margin: 5px 0;
+  }
+  .login-page{
+    padding: 30px 15px;
+  }
+  .delete-all{
+    margin: 20px 0;
+  }
+  .create_product .upload{
+    margin: 20px 0;
+  }
+}

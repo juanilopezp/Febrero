@@ -11,6 +11,9 @@ header{
 header .logo{
     flex: 1;
 }
+header .logo a{
+    color: #f7a;
+}
 header a{
     text-transform: uppercase;
     color: #555;
