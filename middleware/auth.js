@@ -1,4 +1,4 @@
-const jwt = require ('jsonwebtoken')
+const jwt = require('jsonwebtoken')
 
 
 const auth = (req, res, next) =>{
@@ -6,14 +6,14 @@ const auth = (req, res, next) =>{
         const token = req.header("authorization")
         if(!token) return res.status(400).json({msg: "invalid atuhentication"})
         jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, user) =>{
-            if(err) return res.status(500).json({msg: "invalid authentication"})
+            if(err) return res.status(400).json({msg: "invalid authentication"})
             
-            req.user= user
+            req.user = user
             next()
         })
     
     
-    } catch (error) {
+    } catch (err) {
         return res.status(500).json({msg: err.message})
     }
 }

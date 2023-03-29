@@ -12,13 +12,13 @@ const categoryControl = {
     createCategory: async (req, res) =>{
         try {
 
-            const {name} = req.body;
+            {/*const {name} = req.body;
             const category = await Category.findOne({name})
             if(category) return res.status(400).json({msg: "Esta categoria ya existe"})
 
             const newCategory = new Category({name})
 
-            await newCategory.save()
+        await newCategory.save()*/}
             res.json('Check admin success')
         } catch (err) {
             return res.status(500).json({msg: err.message})

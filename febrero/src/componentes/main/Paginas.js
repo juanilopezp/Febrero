@@ -25,7 +25,7 @@ function Paginas() {
       <Route path='/detail/:id' element={<DetailProduct/>}/>
 
       <Route path='/login' element={isLogged ? <NotFound/> : <Login/>}/>
-      <Route path='/register' element={isLogged ? <NotFound/>:<Register/>}/>
+      <Route path='/register' element={isLogged ? <NotFound/> : <Register/>}/>
       
       
       <Route path='/category' element={isAdmin ? <Categories/> : <NotFound/>}/>

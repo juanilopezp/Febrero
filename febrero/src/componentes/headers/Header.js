@@ -17,7 +17,7 @@ function Header() {
     const logoutUser = async () =>{
         await axios.get('/user/logout')
         localStorage.removeItem('firstLogin')
-        window.location.href = '/'
+        window.location.href = '/';
     }
 
     const adminRouter = () =>{
@@ -43,7 +43,6 @@ function Header() {
     }
 
   return (
-    <div>
         <header>
             <div className='menu' onClick={() => setMenu(!menu)}>
                 <img src={Menu} alt="" width="30"/>
@@ -51,33 +50,32 @@ function Header() {
 
             <div className='logo'>
                 <h1>
-                    <Link to="/">{isAdmin?'Admin':'Punky Store'}</Link>
+                    <Link to="/">{isAdmin ? 'Admin':'Punky Store'}</Link>
                 </h1>
             </div>
  
             <ul style={styleMenu}>
-                <li><Link to="/">{isAdmin?'Productos':'Store'}</Link></li>
+                <li><Link to="/">{isAdmin ? 'Productos':'Store'}</Link></li>
                 {isAdmin && adminRouter()}
                 {
-                    isLogged ? loggedRouter : <li><Link to="/login">Login ✥ Register</Link></li>
+                    isLogged ? loggedRouter() : <li><Link to="/login">Login ✥ Register</Link></li>
                 }
                 <li onClick={() => setMenu(!menu)}>
                     <img src={Close} alt ="" width="30" className='menu'/>
                 </li>
             </ul>
             {
-                isAdmin ? '': 
-                <div className='cart-icon'>
+                isAdmin ? ''
+                :<div className='cart-icon'>
                     {/* ESTE .LENGTH DEBERIA FUNCIONAR */}
-                <span>{cart.length} 0 </span>
-                <Link to="/">
-                    <img src={Cart} alt="" width="30"/>
-                </Link>
-            </div>
+                    <span>{cart.length}</span>
+                    <Link to="/cart">
+                        <img src={Cart} alt="" width="30"/>
+                    </Link>
+                </div>
             }
             
         </header>
-    </div>
   )
 }
 
