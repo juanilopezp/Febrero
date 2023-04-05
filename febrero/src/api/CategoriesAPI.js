@@ -1,6 +1,6 @@
 import React,{ useEffect, useState } from 'react'
 import axios from 'axios'
-function CategoriesAPI(token) {
+function CategoriesAPI() {
   const [categories, setCategories] = useState([])
   const [callback, setCallback] = useState(false)
   

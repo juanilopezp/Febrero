@@ -24,7 +24,7 @@ function ProductosAPI() {
         productos: [productos, setProductos],
         callback: [callback, setCallback],
         category: [category, setCategory],
-        sprt: [sort, setSort],
+        sort: [sort, setSort],
         search: [search, setSearch],
         page: [page, setPage],
         result: [result, setResult]

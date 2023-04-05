@@ -3,7 +3,7 @@ import axios from 'axios'
 import {GlobalState} from '../../../GlobalState'
 import Loading from '../utils/loading/Loading'
 import {useNavigate, useParams} from 'react-router-dom'
-
+import ProductosAPI from '../../../api/ProductosAPI'
 
 
 const initialState = {
@@ -25,19 +25,18 @@ function CreateProduct() {
 
 
 
-  const [isAdmin] = state.userAPI.isAdmin
   const [token] = state.token
 
   const history = useNavigate()
   const param = useParams()
   
-  const [products] = state.productsAPI.products
+  const [productos] = state.productosAPI.productos
   const [onEdit, setOnEdit] = useState(false)
 
-  const [callback, setCallback] = state.productsAPI.callback
+  const [callback, setCallback] = state.productosAPI.callback
   useEffect(() =>{
-    if(param.id){
-      products.forEach(product =>{
+    
+      productos.forEach(product =>{
         setOnEdit(true)
         if(product._id === param.id){
           setProduct(product)
@@ -45,20 +44,13 @@ function CreateProduct() {
         } 
         
       })
-      
-    }else{
-      setOnEdit(false)
-      setProduct(initialState)
-      setImages(false)
-    }
-  }, [param.id, products])
+  }, [param.id, productos])
   const handleUpload = async e =>{
     e.preventDefault()
     try {
-      if(!isAdmin) return alert("no sos admin, cap :/")
       const file = e.target.files[0]
 
-      if(!file) if(!isAdmin) return alert("ese archivo no existe :/")
+      if(!file) return alert("ese archivo no existe :/")
 
       if(file.size > 1024 * 1024) 
       return alert("archivo muy extenso :/")
@@ -82,7 +74,6 @@ function CreateProduct() {
 
   const handleDestroy = async ()=>{
     try {
-      if(!isAdmin) return alert("no sos admin, cap :/")
       setLoading(true)
       await axios.post('/api/delete', {public_id: images.public_id},{
         headers: {Authorization: token}
@@ -103,7 +94,6 @@ function CreateProduct() {
   const handleSubmit = async e =>{
     e.preventDefault()
     try {
-      if(!isAdmin) return alert("no sos admin, cap :/")
       if(!images) return alert("no hay imagen :/")
       if(onEdit){
         await axios.put(`/api/products/${product._id}`, {...product, images},{

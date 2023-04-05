@@ -15,7 +15,6 @@ import CreateProduct from './createProducts/CreateProduct'
 function Paginas() {
   const state = useContext(GlobalState)
   const[isLogged] = state.userAPI.isLogged
-  const[isAdmin] = state.userAPI.isAdmin
 
 
   return (
@@ -28,9 +27,9 @@ function Paginas() {
       <Route path='/register' element={isLogged ? <NotFound/> : <Register/>}/>
       
       
-      <Route path='/category' element={isAdmin ? <Categories/> : <NotFound/>}/>
-      <Route path='/create_product' element={isAdmin ? <CreateProduct/> : <NotFound/>}/>
-      <Route path='/edit_product:id' element={isAdmin ? <CreateProduct/> : <NotFound/>}/>
+      <Route path='/category' element={ <Categories/> }/>
+      <Route path='/create_product' element={ <CreateProduct/>  }/>
+      <Route path='/edit_product:id' element={<CreateProduct/> }/>
       
       <Route path='/history' element={isLogged ? <OrderHistory/> : <NotFound/>}/>
       <Route path='/history/:id' element={isLogged ? <OrderDetails/> : <NotFound/>}/>

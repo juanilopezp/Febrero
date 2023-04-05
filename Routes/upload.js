@@ -2,7 +2,6 @@ const Router = require('express').Router()
 const cloudinary = require('cloudinary')
 const { json } = require('express')
 const auth = require('../middleware/auth')
-const authAdmin = require('../middleware/authAdmin')
 const fs = require('fs')
 //subimo fotos al Cloudinary
 
@@ -14,7 +13,7 @@ cloudinary.config({
 })
 
 //subir imagen, solo admin
-Router.post('/upload', auth, authAdmin, (req, res) =>{
+Router.post('/upload', auth,  (req, res) =>{
     try {
         console.log(req.files)
         if(!req.files || Object.keys(req.files).length === 0)
@@ -43,7 +42,7 @@ Router.post('/upload', auth, authAdmin, (req, res) =>{
 })
 
 //Deletear imagen, solo admin
-Router.post('/delete', auth, authAdmin, (req, res)=>{
+Router.post('/delete', auth, (req, res)=>{
     try {
         const {public_id} = req.body;
         if(!public_id) res.status(400).json({msg: "sin imagenes seleccionadas"})

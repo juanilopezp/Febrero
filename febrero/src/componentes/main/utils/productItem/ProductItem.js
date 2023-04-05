@@ -3,14 +3,11 @@ import BtnRender from './BtnRender'
 
 
 
-function ProductItem({product, isAdmin, deleteProduct, handleCheck}) {
+function ProductItem({product, deleteProduct}) {
   
   return (
     <div className='product_card'>
-      {
-        isAdmin && <input type="checkbox" checked={product.checked}
-        onChange={() => handleCheck(product._id)} />
-      }
+      
 
         <img src={product.images.url} alt=""/>
 

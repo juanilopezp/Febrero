@@ -3,7 +3,6 @@ import React, {useEffect, useState} from 'react'
 
 function UserAPI(token) {
     const [isLogged, setIsLogged] = useState(false)
-    const [isAdmin, setIsAdmin] = useState(false)
     const [cart, setCart] = useState([])
     const [history, setHistory] = useState([])
   
@@ -16,8 +15,6 @@ function UserAPI(token) {
                         headers: {Authorization: token}
                     })
                     setIsLogged(true)
-                    res.data.role === 1 ? setIsAdmin(true) : setIsAdmin(false)
-
                     setCart(res.data.cart)
                 } catch (err) {
                     alert(err.response.data.msg)
@@ -58,7 +55,6 @@ function UserAPI(token) {
     
     return {
         isLogged: [isLogged, setIsLogged],
-        isAdmin: [isAdmin, setIsAdmin],
         cart: [cart, setCart],
         addCart: addCart,
         history: [history, setHistory]

@@ -8,7 +8,6 @@ import Filters from './Filters'
 function Products() {
   const state = useContext(GlobalState)
   const [productos, setProductos] = state.productosAPI.productos
-  const [isAdmin] = state.userAPI.isAdmin
   const [token] = state.token
   const [callback, setCallback] = state.productosAPI.cllback
   const [loading, setLoading] = useState(false)
@@ -59,19 +58,18 @@ function Products() {
   return (
     <>
     <Filters/>
-    {
-      isAdmin &&
+    
       <div className='delete-all'>
           <span>Select all</span>
           <input type="checkbox" checked= {isCheck} onChange={checkAll}/>
           <button onClick={deleteAll}>Delete all</button>
       </div>
-    }
+    
      <div className='products'>
         {
           productos.map(product =>{
             return <ProductItem key={product._id} 
-            product = {product}  isAdmin={isAdmin} 
+            product = {product}  
             deleteProduct={deleteProduct} handleCheck={handleCheck}/>
           })
         }
