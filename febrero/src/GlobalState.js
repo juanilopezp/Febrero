@@ -28,10 +28,10 @@ export const DataProvider = ({children}) =>{
         }
     }, [])
 
-    ProductosAPI()
+    
     const state = {
         token: [token, setToken],
-        ProductosAPI: ProductosAPI(),
+        productosAPI: ProductosAPI(),
         userAPI: UserAPI(token),
         categoriesAPI: CategoriesAPI()
     }

@@ -3,7 +3,7 @@ import axios from 'axios'
 import {GlobalState} from '../../../GlobalState'
 import Loading from '../utils/loading/Loading'
 import {useNavigate, useParams} from 'react-router-dom'
-import ProductosAPI from '../../../api/ProductosAPI'
+
 
 
 const initialState = {
