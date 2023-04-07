@@ -58,7 +58,6 @@ function Header() {
             </ul>
             
                 <div className='cart-icon'>
-                    
                     <span>{cart.length}</span>
                     <Link to="/cart">
                         <img src={Cart} alt="" width="30"/>

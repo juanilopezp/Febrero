@@ -1,0 +1,1 @@
+Punky Store es una pagina web de tipo e-commerce, la cual cuenta con un encabezado

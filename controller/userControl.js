@@ -10,8 +10,8 @@ const userControl ={
             const {name, email, password} = req.body;
 
             const user = await Users.findOne({email})
-            if(user) return res.status(400).json({msg: "YA EXISTE EL MAIL PELOTUDO"})
-            if(password.length < 6) return res.status(400).json({msg:"AUNQUE SEAN 6 CARACTERES MAESTRO"})
+            if(user) return res.status(400).json({msg: "Este mail ya existe"})
+            if(password.length < 6) return res.status(400).json({msg:"Su contraseña debe tener un minimo de 6(seis) caracteres"})
 
             //Encriptacion de contraseña
             const passwordHash = await bcrypt.hash(password, 10)
