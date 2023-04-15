@@ -10,8 +10,8 @@ const initialState = {
   product_id: '',
   title: '',
   price: 0,
-  description: 'garcha',
-  content: "poronga",
+  description: 'descripcion',
+  content: "contenido",
   category: '',
   _id: ''
 }

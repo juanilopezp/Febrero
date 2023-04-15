@@ -9,7 +9,7 @@ import axios from 'axios'
 
 function Header() {
     const state = useContext(GlobalState)
-    const [isLogged] = state.userAPI.isLogged
+    const {isLogged : isLogged} = state.userAPI
 
     const [cart] = state.userAPI.cart
     const [menu, setMenu] = useState(false)
@@ -29,7 +29,11 @@ function Header() {
             </>
         )
     }
-
+    if (isLogged){
+       console.log("logueado");
+    }else{
+        console.log("no logueado");
+    }
 
     const styleMenu ={
         left: menu ? 0 : "-100%"
@@ -63,8 +67,6 @@ function Header() {
                         <img src={Cart} alt="" width="30"/>
                     </Link>
                 </div>
-            
-            
         </header>
   )
 }
