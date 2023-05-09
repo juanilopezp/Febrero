@@ -1,6 +1,6 @@
 import React, {useContext, useState, useEffect} from 'react'
 import { useParams, Link } from 'react-router-dom'
-import { GlobalState } from '../../../../GlobalState'
+import { GlobalState } from '../../../GlobalState'
 import ProductItem from '../utils/productItem/ProductItem'
 
 
@@ -33,7 +33,7 @@ function DetailProduct() {
             <p> {DetailProduct.description}</p>
             <p> {DetailProduct.content}</p>
             <p>Sold: {DetailProduct.sold}</p>
-            <Link to='/cart' className='cart' onClick={() => addCart(detailProduct)}>
+            <Link to='/cart' className='cart' onClick={() => addCart(DetailProduct)}>
                 Comprar ahora
             </Link>
         </div>

@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import Products from './productos/Products'
-import DetailProduct from './productos/Products'
+import DetailProduct from './DetailProduct/DetailProduct'
 import Login from './auth/Login'
 import Register from './auth/Register'
 import Cart from './cart/Cart'
@@ -14,13 +14,14 @@ import CreateProduct from './createProducts/CreateProduct'
 
 function Paginas() {
   const state = useContext(GlobalState)
-  const[isLogged] = state.userAPI.isLogged
+  const{isLogged : isLogged} = state.userAPI
 
 
   return (
     <>
     <Routes>
-      <Route path='/productos' element={<Products/>}/>
+
+      <Route path='/ ' element={<Products/> }/>
       <Route path='/detail/:id' element={<DetailProduct/>}/>
 
       <Route path='/login' element={isLogged ? <NotFound/> : <Login/>}/>

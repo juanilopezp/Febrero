@@ -23,7 +23,7 @@ function Header() {
         return(
             <>
             <li><Link to="/history">historial</Link></li>
-            <li><Link to="/" onClick={logoutUser}>Logout</Link></li>
+            <li><Link to="/ " onClick={logoutUser}>Logout</Link></li>
             <li><Link to="/create_product">Create Product</Link></li>
             <li><Link to="/category">Categories</Link></li>
             </>
@@ -52,7 +52,6 @@ function Header() {
             </div>
  
             <ul style={styleMenu}>
-                <li><Link to="/">Store</Link></li>
                 {
                     isLogged ? loggedRouter() : <li><Link to="/login">Login ✥ Register</Link></li>
                 }
