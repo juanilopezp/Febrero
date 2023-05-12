@@ -9,9 +9,9 @@ function Products() {
   const state = useContext(GlobalState)
   const [productos, setProductos] = state.productosAPI.productos
   const [token] = state.token
-  const [callback, setCallback] = state.productosAPI.cllback
+  const [callback, setCallback] = state.productosAPI.callback
   const [loading, setLoading] = useState(false)
-  const [isCheck, setIsChecked] = useState (false)
+  const [isCheck, setIsChecked] = useState(false)
 
   const handleCheck = (id) =>{
     productos.forEach(product=>{
@@ -57,7 +57,7 @@ function Products() {
  if(loading) return <div><Loading/></div>
   return (
     <>
-    <Filters/>
+      <Filters/>
     
       <div className='delete-all'>
           <span>Select all</span>
@@ -75,7 +75,7 @@ function Products() {
         }
       </div>
       {productos.length === 0 && <Loading/>}
-      </>
+    </>
     
   )
 }

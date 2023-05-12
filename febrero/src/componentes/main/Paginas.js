@@ -21,7 +21,7 @@ function Paginas() {
     <>
     <Routes>
 
-      <Route path='/ ' element={<Products/> }/>
+      <Route path='/' element={<Products/>}/>
       <Route path='/detail/:id' element={<DetailProduct/>}/>
 
       <Route path='/login' element={isLogged ? <NotFound/> : <Login/>}/>

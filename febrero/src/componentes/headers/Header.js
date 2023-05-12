@@ -17,7 +17,7 @@ function Header() {
     const logoutUser = async () =>{
         await axios.get('/user/logout')
         localStorage.removeItem('firstLogin')
-        window.location.href = '/';
+        window.location.href = '/ ';
     }
     const loggedRouter = () =>{
         return(
@@ -47,7 +47,7 @@ function Header() {
 
             <div className='logo'>
                 <h1>
-                    <Link to="/">Punky Store</Link>
+                    <Link to="/ ">Punky Store</Link>
                 </h1>
             </div>
  
